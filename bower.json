@@ -2,7 +2,11 @@
   "name": "myresume",
   "private": true,
   "dependencies": {
-    "bootstrap": "~4.0.0-alpha.6"
+    "bootstrap": "~4.0.0-alpha.6",
+    "d3": "^4.6.0",
+    "materialize": "^0.98.0",
+    "fullpage.js": "^2.9.2",
+    "animate.css": "^3.5.2"
   },
   "overrides": {
     "bootstrap": {
@@ -12,5 +16,9 @@
         "dist/css/bootstrap.css"
       ]
     }
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }
