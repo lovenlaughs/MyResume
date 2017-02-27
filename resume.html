@@ -45,13 +45,15 @@ p {margin:1.5em 0}
 
 #text {
 	text-align: center;
+	font-family: 'Play', sans-serif;
 	border: 1px solid #f9f9f9;
-	background-color: green;
+	background-color: #ff6250;
 }
 
 #panel-1 {
   background-color:#add8e6;
   color:white;
+  width: 25%;
   -webkit-column-count:4;
   -moz-column-count:4;
   column-count:4;
@@ -62,11 +64,12 @@ p {margin:1.5em 0}
 }
 
 #panel-2 {
+  /*background: linear-gradient(90deg, #add8e6 0%, #add8e6 51%, #49a5bf 75%);*/
   background-color:#add8e6;
   color:white;
-  -webkit-column-count:2;
-  -moz-column-count:2;
-  column-count:2;
+  -webkit-column-count:4;
+  -moz-column-count:4;
+  column-count:4;
   -webkit-column-gap:2em;
   -moz-column-gap:2em;
   column-gap:2em;
@@ -74,6 +77,7 @@ p {margin:1.5em 0}
 }
 
 #panel-3 {
+ /*background: linear-gradient(90deg, #49a5bf 30%, #ffafaf 51%, #ffafaf 75%);*/
   background-color:#add8e6;
   color:white;
 }
@@ -99,6 +103,39 @@ p {margin:1.5em 0}
   -moz-column-gap:1em;
   column-gap:1em;
 }
+
+#panel-6 {
+  background-color:#add8e6;
+  color:white;
+  margin-left: 100%;
+  margin-top: -20%;
+  width: 250%;
+  height: 580px;
+  -webkit-column-count:4;
+  -moz-column-count:4;
+  column-count:4;
+  -webkit-column-gap:1em;
+  -moz-column-gap:1em;
+  column-gap:1em;
+  display: none;
+}
+
+/*#panel-7 {
+  background: linear-gradient(90deg, #add8e6 0%, #add8e6 51%, #49a5bf 75%);
+  color:white;
+  margin-left: 150%;
+  margin-top: -35%;
+  width: 50%;
+  height: 667px;
+  -webkit-column-count:4;
+  -moz-column-count:4;
+  column-count:4;
+  -webkit-column-gap:1em;
+  -moz-column-gap:1em;
+  column-gap:1em;
+  display: none;
+}*/
+
 #object { 
   position:absolute;
   left:0px; 
@@ -199,10 +236,10 @@ button:hover {
 #block1 {
     position: absolute;
     background-color: #99d100;
-    width:800px;
+    width:1200px;
     height:70px;
     margin-top: 18.5%;
-	margin-left: -80%;
+	margin-left: -100%;
     border-top: 14px solid;
     border-color:#86b800 transparent transparent transparent;
     border-radius: 50%/100px 100px 0 0;
@@ -246,15 +283,14 @@ button:hover {
 }
 #block5 {
     position: absolute;
-    background-color: #99d100;
-    width:800px;
-    height:70px;
-    margin-top: 12%;
-	margin-left: 45%;
+    background-color: #4dd3ff;
+    width:1000px;
+    height:150px;
+    margin-top: 14.85%;
+	margin-left: -43.6%;
     border-top: 14px solid;
-    border-color:#86b800 transparent transparent transparent;
-	border-radius: 150%/100px 100px 0 0;
-    display: none;
+    border-color:#4dc4ff transparent transparent transparent;
+	border-radius: 150%/50px 45px 0 0;
 }
 #cloud {
 	width: 350px; height: 120px;
@@ -275,14 +311,24 @@ button:hover {
 <body>
 
  <p id = "name"></p>
+ <canvas id="myCanvas"></canvas>
+ <div class="panel" id="panel-6">
+        <div class="inner">
+			<div id = "cloud"></div>
+		</div>
+ </div>
+ <!--<div class="panel" id="panel-7">
+        <div class="inner">
+			<div id = "cloud"></div>
+		</div>
+ </div>-->
         <button id="presshere">Let's Begin</button>
-<canvas id="myCanvas"></canvas>
 <div id="scenery">
     <div class="panel" id="panel-1">
         <div class="inner">
 			<!--<h2>My Journey</h2>-->
 			<div id = "cloud"></div>
-			<p id = "text"> My skills include HTML, CSS, JavaScript/Jquery, PHP. Adobe Suite. </p>
+			<p id = "text"> University of Central Florida <br> Bachelor of Arts, Digital Media </p>
 		</div>
 		<div id = "block1"></div>
 		<div id = "block2"></div>
@@ -303,15 +349,18 @@ button:hover {
 		</div>
     </div>
     <div class="panel" id="panel-4">
-        <div class="inner"><p id = "text"> This is a resume. </p></div>
+        <div class="inner">
+			<p id = "text"> This is a resume. </p></div>
     </div>
     <div class="panel" id="panel-5">
-        <div class="inner"><p id = "text"> This is a resume. </p></div>
+        <div class="inner">
+			<p id = "text"> This is a resume. </p></div>
     </div>
 </div>
 <div id="object"><img src = "https://cdn.pixabay.com/photo/2014/04/03/11/55/hot-air-balloon-312562_960_720.png" alt = "balloon" width = "100" height = "145"></div>
 <script src="http://code.jquery.com/jquery.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
 <script type="text/javascript">
 
 
@@ -322,7 +371,10 @@ $(document).ready(function(){
             $("body").css("background-color", "#333");
             $("#name").hide().fadeIn(2000);
 			$("#scenery").delay(4000).fadeIn(4000);
+			$("#panel-6").delay(4000).fadeIn(4000);
+			$("#panel-7").delay(4000).fadeIn(4000);
 			$("#object").delay(4000).fadeIn(4000);
+			/*$("#object").delay(2500).animate({top: '-100px'});*/
 			$("#myCanvas").delay(2000).fadeIn(2000);
             $("#block1").delay(4000).fadeIn(4000);
             $("#block2").delay(4000).fadeIn(4000);
@@ -332,14 +384,12 @@ $(document).ready(function(){
         });
     });
 
-var thing = $("#object");
-
-$(window).resize(function(){
-	if (thing.width() <= 800){	
-		$(thing).slideUp();
-	}	
-});
-
+$(document).ready(function(){
+    $("#panel-2").hover(function(){
+        $("#object").animate({top: '-100px'});
+    });
+});	
+	
 (function() {
     function scrollHorizontally(e) {
         e = window.event || e;
