@@ -186,7 +186,7 @@ button {
     border: 1px solid #ffa79d;
   font-family: 'Lobster', cursive;
     font-size: 30px;
-  margin-left: 42.5%;
+  margin-left: 43%;
   margin-top: 8%;
   box-shadow: 0 0 0 0 rgba(#5a99d4, .5);
    -webkit-animation-name: pulsate;
@@ -258,7 +258,6 @@ button:hover {
 #presshere {
 	color: white;
 	font-family: 'Lobster', cursive;
-	margin-left: 50%;
 }
 
 #name {
